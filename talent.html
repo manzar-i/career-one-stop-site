@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Career One Stop — For Talent</title>
+<meta name="description" content="Create your profile and get discovered by hiring teams. Career One Stop — talent network."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --muted:#6b7280; --black:#000; --accent-a:#06a4a0;
+    --card-radius:22px; --pill-radius:999px; --max-width:1300px;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* Header */
+  header{max-width:var(--max-width);margin:22px auto;padding:8px 20px;display:flex;align-items:center;justify-content:space-between}
+  .brand img{height:42px}
+  nav{display:flex;gap:14px;align-items:center}
+  nav a{color:var(--muted);padding:8px 10px;border-radius:10px;font-weight:600}
+  nav a.active{color:var(--black);font-weight:800}
+  .btn-ghost{padding:8px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)}
+  .btn-black{background:var(--black);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700}
+
+  /* Hero */
+  .hero-wrap{max-width:1400px;margin:8px auto 12px;padding:28px 20px;text-align:center;position:relative}
+  .hero-kicker{display:inline-block;padding:8px 16px;border-radius:999px;background:linear-gradient(90deg,#f7ead6,#efe2f0);font-weight:700;color:#222;margin-top:6px}
+  .hero-h1{font-family:"Playfair Display", Inter, serif;font-size:84px;line-height:0.98;margin:26px 0 12px;font-weight:700;letter-spacing:-1px}
+  .hero-h1 em{font-style:italic;font-weight:800}
+  .hero-sub{max-width:800px;margin:0 auto;color:var(--muted);font-size:18px}
+  .hero-cta{margin-top:22px}
+  .hero-foot{color:var(--muted);margin-top:12px;font-size:13px}
+
+  /* Floating avatars */
+  .avatars{pointer-events:none;position:relative;margin-top:14px;height:120px}
+  .av{position:absolute;border-radius:999px;border:6px solid #fff;box-shadow:0 14px 40px rgba(2,6,23,0.08);overflow:hidden}
+  .av img{width:100%;height:100%;object-fit:cover}
+  .av.s1{width:86px;height:86px;left:6%;top:10%}
+  .av.s2{width:60px;height:60px;left:28%;top:-6%}
+  .av.s3{width:96px;height:96px;left:50%;transform:translateX(-50%);top:-34px}
+  .av.s4{width:58px;height:58px;right:28%;top:-8%}
+  .av.s5{width:86px;height:86px;right:8%;top:12%}
+
+  /* Signup card + quick form */
+  .create-card{max-width:980px;margin:28px auto;padding:0 20px}
+  .form{background:#fff;border-radius:12px;padding:18px;border:1px solid rgba(15,23,42,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.04)}
+  .form input,.form textarea,.form select{width:100%;padding:10px;border-radius:10px;border:1px solid #eef3f5;margin-bottom:10px}
+
+  /* Roles pill grid */
+  .roles-section{margin:46px auto 24px;padding:40px 20px 80px;max-width:1300px;background:linear-gradient(90deg,#fbf5ef 0%, #fbf3f6 50%, #faf8ff 100%);border-top-left-radius:28px;border-top-right-radius:28px}
+  .roles-title{font-size:40px;font-weight:800;text-align:center;margin:0 0 12px}
+  .roles-sub{max-width:880px;margin:0 auto 22px;color:var(--muted);text-align:center}
+  .pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px}
+  .pill{background:#fff;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 12px 30px rgba(2,6,23,0.03);border:1px solid rgba(15,23,42,0.03);display:inline-flex;align-items:center;gap:10px}
+  .pill .ico{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+
+  /* Talent showcase */
+  .talent-row{max-width:var(--max-width);margin:22px auto;display:flex;gap:14px;overflow-x:auto;padding:18px}
+
+  /* Footer */
+  footer{background:#000;color:#fff;padding:48px 20px;margin-top:60px}
+  .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:26px;align-items:start}
+  .footer-inner h5{margin:0 0 12px;font-size:14px}
+  .footer-inner a{display:block;color:rgba(255,255,255,0.9);margin:8px 0;text-decoration:none;font-size:14px}
+
+  /* responsive */
+  @media (max-width:1100px){ .hero-h1{font-size:60px} .talent-row{gap:10px} }
+  @media (max-width:720px){ .hero-h1{font-size:36px} .av.s3{display:none} .roles-section{padding:28px 16px} .footer-inner{grid-template-columns:1fr 1fr} }
+  @media (max-width:420px){ .hero-h1{font-size:30px} .pills{gap:10px} }
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="brand"><a href="index.html"><img src="career-one-stop-monogram.png" alt="logo"></a></div>
+    <nav aria-label="Primary">
+      <a href="index.html" class="nav-link">For Companies</a>
+      <a href="talent.html" class="nav-link">For Talent</a>
+    </nav>
+  </header>
+
+  <!-- Hero (Talent) -->
+  <main>
+    <section class="hero-wrap">
+      <div class="center">
+        <div class="hero-kicker">1000+ creatives seeking new opportunities</div>
+        <h1 class="hero-h1">You can join <em id="rotator-t">Yes Theory</em>'s roster</h1>
+        <p class="hero-sub">Work with the world's biggest creators — freelance or full-time. Create your profile and get discovered.</p>
+        <div class="hero-cta"><a class="btn-black" href="#create">Create your profile</a></div>
+        <div class="hero-foot">it's free 👀</div>
+
+        <!-- floating avatars -->
+        <div class="avatars" aria-hidden="true">
+          <div class="av s1"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=60" alt=""></div>
+          <div class="av s2"><img src="https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=500&q=60" alt=""></div>
+          <div class="av s3"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=60" alt=""></div>
+          <div class="av s4"><img src="https://images.unsplash.com/photo-1545235617-9465f21c0aee?w=500&q=60" alt=""></div>
+          <div class="av s5"><img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=500&q=60" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Create/signup quick form -->
+    <section class="create-card" id="create">
+      <div class="form" role="form" aria-label="Create profile form">
+        <label style="font-weight:700;display:block;margin-bottom:8px">Quick join</label>
+        <input id="name" placeholder="Full name" />
+        <input id="email" placeholder="Email" />
+        <select id="role">
+          <option>Video Editor</option><option>Frontend Engineer</option><option>Product Designer</option><option>Other</option>
+        </select>
+        <textarea id="bio" rows="3" placeholder="Short intro / portfolio link"></textarea>
+        <div style="display:flex;gap:10px;justify-content:center">
+          <button class="btn-black" onclick="quickJoin()">Create profile</button>
+        </div>
+        <div style="margin-top:10px;color:var(--muted);text-align:center">Or email: <a href="mailto:manzar@careeronestop.in">manzar@careeronestop.in</a></div>
+      </div>
+    </section>
+
+    <!-- Roles -->
+    <section class="roles-section">
+      <div class="roles-title center">20+ Roles Supported</div>
+      <div class="roles-sub center">Creators are hiring across a wide range — editors, strategists, designers, producers and more.</div>
+      <div class="pills" role="list">
+        <div class="pill"><span class="ico" style="background:#fef3c7">🎬</span>Video Editor</div>
+        <div class="pill"><span class="ico" style="background:#fce7f3">✍️</span>Scriptwriter</div>
+        <div class="pill"><span class="ico" style="background:#e6f7f4">🎨</span>Creative Director</div>
+        <div class="pill"><span class="ico" style="background:#f7f0ff">📈</span>Growth Marketer</div>
+        <div class="pill"><span class="ico" style="background:#fff3e0">🧑‍💻</span>Frontend Engineer</div>
+        <div class="pill"><span class="ico" style="background:#eef2ff">📸</span>Photographer</div>
+        <div class="pill"><span class="ico" style="background:#f0fff4">🔎</span>Researcher</div>
+        <div class="pill"><span class="ico" style="background:#fff5f0">🎧</span>Podcast Editor</div>
+      </div>
+    </section>
+
+    <!-- Talent showcase (carousel) -->
+    <section style="max-width:var(--max-width);margin:22px auto;padding:0 20px">
+      <div class="talent-row" id="talentRow" aria-label="Featured talent"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <img src="career-one-stop-monogram.png" alt="logo" style="height:28px;margin-bottom:12px">
+        <div style="color:rgba(255,255,255,0.85)">Talent network</div>
+        <div style="margin-top:12px;color:rgba(255,255,255,0.7)">© <span id="yearT"></span> Career One Stop</div>
+      </div>
+
+      <div>
+        <h5>Explore</h5>
+        <a href="#create">Create profile</a>
+        <a href="#talentRow">Browse talent</a>
+      </div>
+
+      <div>
+        <h5>Company</h5>
+        <a href="index.html">For Companies</a>
+        <a href="mailto:manzar@careeronestop.in">Contact</a>
+      </div>
+
+      <div>
+        <h5>Help</h5>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // set year
+  document.getElementById('yearT').textContent = new Date().getFullYear();
+
+  // nav active highlight (depending on file)
+  document.querySelectorAll('nav a').forEach(a=>{
+    if(location.pathname.split('/').pop() === 'talent.html' && a.getAttribute('href') === 'talent.html') a.classList.add('active');
+    if((location.pathname.split('/').pop() === '' || location.pathname.split('/').pop() === 'index.html') && a.getAttribute('href') === 'index.html') a.classList.add('active');
+  });
+
+  // rotator words for talent hero
+  (function(){
+    const names = ["Yes Theory","Watch","MrBeast","Ali Abdaal","Fynd"];
+    const el = document.getElementById('rotator-t');
+    if(!el) return;
+    let i=0;
+    el.textContent = names[0];
+    setInterval(()=>{
+      i = (i+1) % names.length;
+      el.style.opacity = 0;
+      setTimeout(()=>{ el.textContent = names[i]; el.style.opacity = 1; }, 220);
+    }, 2400);
+  })();
+
+  // quick join action (mailto)
+  function quickJoin(){
+    const name = document.getElementById('name').value || 'Candidate';
+    const email = document.getElementById('email').value || '';
+    const role = document.getElementById('role').value || '';
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRole: ${role}\n\n`);
+    const subject = encodeURIComponent('Join request: '+name);
+    window.location.href = `mailto:manzar@careeronestop.in?subject=${subject}&body=${body}`;
+  }
+
+  // sample talent cards
+  const TALENTS = [
+    {name:'Ravi',role:'Video Editor',img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80'},
+    {name:'Sneha',role:'Product Designer',img:'https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=1200&q=80'},
+    {name:'Amit',role:'Frontend',img:'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=1200&q=80'},
+    {name:'Maya',role:'Scriptwriter',img:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80'},
+    {name:'Noah',role:'Producer',img:'https://images.unsplash.com/photo-1545235617-9465f21c0aee?w=1200&q=80'}
+  ];
+
+  function makeTalentCard(t){
+    const c = document.createElement('div');
+    c.style.minWidth='220px';
+    c.style.borderRadius='14px';
+    c.style.overflow='hidden';
+    c.style.background='#fff';
+    c.style.border='1px solid rgba(15,23,42,0.04)';
+    c.style.boxShadow='0 10px 30px rgba(2,6,23,0.04)';
+    c.innerHTML = `<div style="height:180px;background-image:url('${t.img}');background-size:cover;background-position:center"></div>
+                   <div style="padding:12px"><strong>${t.name}</strong><div style="color:var(--muted);font-size:13px">${t.role}</div></div>`;
+    return c;
+  }
+
+  function renderTalent(){
+    const r = document.getElementById('talentRow');
+    r.innerHTML='';
+    TALENTS.forEach(t=> r.appendChild(makeTalentCard(t)));
+  }
+  document.addEventListener('DOMContentLoaded', renderTalent);
+</script>
+</body>
+</html>
