@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Career One Stop — Hire Vetted India Talent for Startups & Scaleups</title>
+<meta name="description" content="Career One Stop helps tech startups & scaleups hire pre-vetted India-based talent — sales, account teams, product, marketing. Dedicated recruiter, fast turnaround, transparent pricing." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --muted:#6b7280; --black:#000; --accent-a:#06a4a0;
+    --card-radius:22px; --pill-radius:999px; --max-width:1300px;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* Header */
+  header{max-width:var(--max-width);margin:22px auto;padding:8px 20px;display:flex;align-items:center;justify-content:space-between}
+  .brand img{height:42px}
+  nav{display:flex;gap:14px;align-items:center}
+  nav a{color:var(--muted);padding:8px 10px;border-radius:10px;font-weight:600}
+  nav a.active{color:var(--black);font-weight:800}
+  .btn-ghost{padding:8px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)}
+  .btn-black{background:var(--black);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700}
+
+  /* Hero */
+  .hero-wrap{max-width:1400px;margin:8px auto 12px;padding:28px 20px;text-align:center;position:relative}
+  .hero-kicker{display:inline-block;padding:8px 16px;border-radius:999px;background:linear-gradient(90deg,#f7ead6,#efe2f0);font-weight:700;color:#222;margin-top:6px}
+  .hero-h1{font-family:"Playfair Display", Inter, serif;font-size:84px;line-height:0.98;margin:26px 0 12px;font-weight:700;letter-spacing:-1px}
+  .hero-h1 em{font-style:italic;font-weight:800}
+  .hero-sub{max-width:860px;margin:0 auto;color:var(--muted);font-size:18px}
+  .hero-cta{margin-top:22px}
+  .hero-foot{color:var(--muted);margin-top:12px;font-size:13px}
+
+  /* Floating avatars (decorative) */
+  .avatars{pointer-events:none;position:relative;margin-top:14px;height:120px}
+  .av{position:absolute;border-radius:999px;border:6px solid #fff;box-shadow:0 14px 40px rgba(2,6,23,0.08);overflow:hidden}
+  .av img{width:100%;height:100%;object-fit:cover}
+  .av.s1{width:86px;height:86px;left:6%;top:10%}
+  .av.s2{width:60px;height:60px;left:28%;top:-6%}
+  .av.s3{width:96px;height:96px;left:50%;transform:translateX(-50%);top:-34px}
+  .av.s4{width:58px;height:58px;right:28%;top:-8%}
+  .av.s5{width:86px;height:86px;right:8%;top:12%}
+
+  /* Cards carousel */
+  .cards-outer{margin-top:28px;padding:18px 6px 60px;overflow:hidden}
+  .cards-row{display:flex;gap:18px;align-items:flex-end;padding:18px;overflow-x:auto;scroll-snap-type:x mandatory}
+  .profile-card{min-width:320px;border-radius:18px;background:#fff;box-shadow:0 20px 40px rgba(12,16,20,0.06);overflow:hidden;position:relative;scroll-snap-align:start;border:1px solid rgba(10,10,10,0.04)}
+  .profile-card .hero-img{height:320px;background:#ddd;background-size:cover;background-position:center}
+  .profile-meta{padding:12px 16px;background:transparent;color:#fff;position:relative;z-index:2}
+  .profile-role{font-weight:700;color:#fff;font-size:13px;background:rgba(0,0,0,0.18);display:inline-block;padding:6px 10px;border-radius:999px}
+  .profile-name{margin-top:10px;color:#fff;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.45)}
+  .profile-company{font-size:13px;color:rgba(255,255,255,0.9);margin-top:6px;display:flex;gap:8px;align-items:center}
+  .profile-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(0deg,rgba(0,0,0,0.45),transparent);pointer-events:none}
+
+  /* Roles pill grid */
+  .roles-section{margin:46px auto 24px;padding:40px 20px 80px;max-width:1300px;background:linear-gradient(90deg,#fbf5ef 0%, #fbf3f6 50%, #faf8ff 100%);border-top-left-radius:28px;border-top-right-radius:28px}
+  .roles-title{font-size:40px;font-weight:800;text-align:center;margin:0 0 12px}
+  .roles-sub{max-width:880px;margin:0 auto 22px;color:var(--muted);text-align:center}
+  .pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px}
+  .pill{background:#fff;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 12px 30px rgba(2,6,23,0.03);border:1px solid rgba(15,23,42,0.03);display:inline-flex;align-items:center;gap:10px}
+  .pill .ico{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+
+  /* CTA strip */
+  .cta-box{max-width:var(--max-width);margin:36px auto;padding:36px 20px;text-align:center}
+  .cta-inner{display:inline-block;background:linear-gradient(90deg,#06a4a0,#06b6d4);color:#fff;padding:22px 30px;border-radius:18px;font-weight:800;box-shadow:0 20px 60px rgba(2,6,23,0.08)}
+
+  /* Footer */
+  footer{background:#000;color:#fff;padding:48px 20px;margin-top:60px}
+  .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:26px;align-items:start}
+  .footer-inner h5{margin:0 0 12px;font-size:14px}
+  .footer-inner a{display:block;color:rgba(255,255,255,0.9);margin:8px 0;text-decoration:none;font-size:14px}
+
+  /* utility */
+  .muted{color:var(--muted)}
+
+  /* responsive */
+  @media (max-width:1100px){
+    .hero-h1{font-size:60px}
+    .profile-card{min-width:280px}
+  }
+  @media (max-width:720px){
+    .hero-h1{font-size:36px}
+    .av.s3{display:none}
+    .profile-card .hero-img{height:220px}
+    .roles-section{padding:28px 16px}
+    .footer-inner{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:420px){
+    .hero-h1{font-size:30px}
+    .pills{gap:10px}
+  }
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="brand"><a href="index.html"><img src="career-one-stop-monogram.png" alt="Career One Stop monogram"></a></div>
+    <nav aria-label="Primary">
+      <a href="companies.html" class="nav-link active">For Companies</a>
+      <a href="talents.html" class="nav-link">For Talent</a>
+    </nav>
+  </header>
+
+  <!-- Hero (Companies) -->
+  <main>
+    <section class="hero-wrap">
+      <div class="center">
+        <div class="hero-kicker">Trusted by remote-first teams & scaling startups</div>
+        <h1 class="hero-h1">Build your India team — fast, vetted, reliable.</h1>
+        <p class="hero-sub">We source, screen and deliver interview-ready candidates across sales, customer success, product, marketing and operations. Dedicated recruiters, fast shortlists — hires that scale your team, not your hiring backlog.</p>
+        <div class="hero-cta"><a class="btn-black" href="mailto:hiring@careeronestop.in?subject=Book%20a%20hiring%20call">Book a hiring call</a></div>
+        <div class="hero-foot">it's free 👀</div>
+
+        <!-- floating avatars (decorative) -->
+        <div class="avatars" aria-hidden="true">
+          <div class="av s1"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=60" alt=""></div>
+          <div class="av s2"><img src="https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=500&q=60" alt=""></div>
+          <div class="av s3"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=60" alt=""></div>
+          <div class="av s4"><img src="https://images.unsplash.com/photo-1545235617-9465f21c0aee?w=500&q=60" alt=""></div>
+          <div class="av s5"><img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=500&q=60" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profiles carousel -->
+    <section class="cards-outer">
+      <div class="cards-row" id="profilesRow" tabindex="0" aria-label="Featured talent"></div>
+    </section>
+
+    <!-- Roles -->
+    <section class="roles-section">
+      <div class="roles-title center">20+ Roles Supported</div>
+      <div class="roles-sub center">Creators and startups are hiring across sales, accounts, customer success, product and marketing — we cover those roles and more.</div>
+      <div class="pills" role="list">
+        <div class="pill"><span class="ico" style="background:#fef3c7">🎬</span> Sales (SaaS / B2B)</div>
+        <div class="pill"><span class="ico" style="background:#fce7f3">🤝</span> Account Manager</div>
+        <div class="pill"><span class="ico" style="background:#e6f7f4">📞</span> Customer Success</div>
+        <div class="pill"><span class="ico" style="background:#f7f0ff">🧑‍💻</span> Product Manager</div>
+        <div class="pill"><span class="ico" style="background:#fff3e0">🎨</span> Product Designer</div>
+        <div class="pill"><span class="ico" style="background:#eef2ff">📣</span> Marketing Manager</div>
+        <div class="pill"><span class="ico" style="background:#f0fff4">✉️</span> Virtual Assistant</div>
+        <div class="pill"><span class="ico" style="background:#fff5f0">📈</span> Product Marketing</div>
+      </div>
+    </section>
+
+    <!-- Features / Why us -->
+    <section id="features" style="max-width:var(--max-width);margin:28px auto;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
+        <h4 style="margin:0 0 8px">Curated, pre-vetted candidates</h4>
+        <p class="muted" style="margin:0">We screen technical fit, role fit and cultural fit before you see a single CV — only interview-ready profiles make the shortlist.</p>
+      </div>
+      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
+        <h4 style="margin:0 0 8px">Speed without compromise</h4>
+        <p class="muted" style="margin:0">Dedicated recruiters deliver shortlists in days, not weeks — shorten time-to-hire and keep momentum on high-impact roles.</p>
+      </div>
+      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
+        <h4 style="margin:0 0 8px">Managed hiring, dedicated recruiter</h4>
+        <p class="muted" style="margin:0">You get a recruiter who becomes your hiring partner — brief, shortlist, interview coordination and onboarding support.</p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section style="max-width:var(--max-width);margin:34px auto;padding:0 20px">
+      <h3 style="text-align:center">Our process — 4 steps</h3>
+      <div style="max-width:900px;margin:18px auto;color:var(--muted);line-height:1.6">
+        <strong>1) Brief & match:</strong> Dedicated recruiter takes a short brief and targets the role.<br>
+        <strong>2) Curated shortlist:</strong> We deliver 5–8 pre-vetted, interview-ready profiles.<br>
+        <strong>3) Interview & offer:</strong> We coordinate interviews, feedback and offer handling.<br>
+        <strong>4) Onboard & guarantee:</strong> We support onboarding and provide a 90-day replacement option.
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="max-width:var(--max-width);margin:24px auto;padding:0 20px">
+      <h3 style="text-align:center">What our clients say</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1000px;margin:18px auto">
+        <div style="background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.04)">
+          <strong>“They built our India sales team from scratch.”</strong>
+          <p class="muted" style="margin-top:8px">Fast turnaround and an excellent cultural fit — we hired three account managers in under six weeks. — Head of Sales, Wishup</p>
+        </div>
+
+        <div style="background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.04)">
+          <strong>“Reliable and cost-efficient.”</strong>
+          <p class="muted" style="margin-top:8px">Reduced our hiring time and improved candidate quality — saved weeks on each hire. — Talent Lead, Fynd</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="max-width:var(--max-width);margin:28px auto;padding:0 20px">
+      <h3 style="text-align:center">FAQ — Quick answers</h3>
+      <div style="max-width:900px;margin:16px auto;color:var(--muted);line-height:1.6">
+        <ul>
+          <li><strong>Who do you hire for?</strong> Sales (SaaS/B2B), Account teams, Customer Success, Marketing, Product, Designers and remote operations roles.</li>
+          <li><strong>How fast can you deliver?</strong> Typical shortlist delivery is 3–10 business days depending on role and seniority.</li>
+          <li><strong>What’s your pricing?</strong> Flexible — we propose % or fixed fee on the call depending on the role and volume.</li>
+          <li><strong>Do you provide a guarantee?</strong> Yes. We offer a replacement workflow (90-day replacement) for hires that don’t work out.</li>
+          <li><strong>Where are candidates based?</strong> Primarily India (remote-available for international teams).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-box" id="hire" aria-label="Hire CTA">
+      <div class="cta-inner">
+        <div style="font-size:20px">Ready to hire?</div>
+        <div style="margin-top:8px;font-weight:400">Book a free 15-minute consultation and we'll propose a hiring plan tailored to your needs.</div>
+        <div style="margin-top:12px"><a class="btn-black" href="mailto:hiring@careeronestop.in?subject=Book%20a%20hiring%20call">Book a Call</a></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <img src="career-one-stop-monogram.png" alt="Career One Stop monogram" style="height:28px;margin-bottom:12px">
+        <div style="color:rgba(255,255,255,0.85)">Recruitment · Talent network</div>
+        <div style="margin-top:12px;color:rgba(255,255,255,0.7)">© <span id="yearC"></span> Career One Stop</div>
+      </div>
+
+      <div>
+        <h5>Platform</h5>
+        <a href="#">Creators</a>
+        <a href="#">Talent</a>
+        <a href="#">Hire Video Editor</a>
+      </div>
+
+      <div>
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Pricing</a>
+        <a href="#">Terms</a>
+      </div>
+
+      <div>
+        <h5>Resources</h5>
+        <a href="#">FAQ</a>
+        <a href="#">Hiring Guide</a>
+        <a href="mailto:hiring@careeronestop.in">Contact support</a>
+        <div style="margin-top:12px"><a href="https://www.linkedin.com/company/careeronestopp" style="color:rgba(255,255,255,0.9)">LinkedIn</a></div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // set year
+  document.getElementById('yearC').textContent = new Date().getFullYear();
+
+  // rotating hero name (kept minimal; companies use fixed headline but rotator is safe)
+  (function(){
+    const names = ["Yes Theory","Watch","MrBeast","Ali Abdaal","Fynd"];
+    const el = document.getElementById('hero-rot');
+    if(!el) return;
+    let i = 0;
+    el.textContent = names[0];
+    setInterval(()=>{
+      i = (i+1) % names.length;
+      el.style.opacity = 0;
+      setTimeout(()=>{ el.textContent = names[i]; el.style.opacity = 1; }, 220);
+    }, 2600);
+  })();
+
+  // sample PROFILES for carousel (replace images with real ones if available)
+  const PROFILES = [
+    {title:"Sales (SaaS)", name:"Senior AE", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80"},
+    {title:"Account Manager", name:"Account Lead", img:"https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=1200&q=80"},
+    {title:"Customer Success", name:"CS Manager", img:"https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=1200&q=80"},
+    {title:"Product Manager", name:"PM", img:"https://images.unsplash.com/photo-1545235617-9465f21c0aee?w=1200&q=80"},
+    {title:"Product Designer", name:"Designer", img:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80"},
+    {title:"Marketing Manager", name:"Growth Lead", img:"https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=1200&q=80"}
+  ];
+
+  function makeCard(p){
+    const d = document.createElement('div');
+    d.className = 'profile-card';
+    d.innerHTML = `<div class="hero-img" style="background-image:url('${p.img}')"></div>
+                   <div class="profile-meta">
+                     <div class="profile-role">${p.title}</div>
+                     <div class="profile-name">${p.name}</div>
+                     <div class="profile-company">Featured</div>
+                   </div>`;
+    return d;
+  }
+
+  function renderProfiles(){
+    const row = document.getElementById('profilesRow');
+    row.innerHTML = '';
+    PROFILES.forEach(p => row.appendChild(makeCard(p)));
+
+    // drag-to-scroll
+    let isDown=false, startX, scrollLeft;
+    row.addEventListener('mousedown', e=>{ isDown=true; row.classList.add('active'); startX = e.pageX - row.offsetLeft; scrollLeft = row.scrollLeft; });
+    row.addEventListener('mouseleave', ()=>{ isDown=false; row.classList.remove('active'); });
+    row.addEventListener('mouseup', ()=>{ isDown=false; row.classList.remove('active'); });
+    row.addEventListener('mousemove', e=>{
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - row.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      row.scrollLeft = scrollLeft - walk;
+    });
+  }
+  document.addEventListener('DOMContentLoaded', renderProfiles);
+</script>
+</body>
+</html>
