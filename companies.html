@@ -251,20 +251,6 @@
   // set year
   document.getElementById('yearC').textContent = new Date().getFullYear();
 
-  // rotating hero name (kept minimal; companies use fixed headline but rotator is safe)
-  (function(){
-    const names = ["Yes Theory","Watch","MrBeast","Ali Abdaal","Fynd"];
-    const el = document.getElementById('hero-rot');
-    if(!el) return;
-    let i = 0;
-    el.textContent = names[0];
-    setInterval(()=>{
-      i = (i+1) % names.length;
-      el.style.opacity = 0;
-      setTimeout(()=>{ el.textContent = names[i]; el.style.opacity = 1; }, 220);
-    }, 2600);
-  })();
-
   // sample PROFILES for carousel (replace images with real ones if available)
   const PROFILES = [
     {title:"Sales (SaaS)", name:"Senior AE", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80"},

@@ -58,6 +58,9 @@
   .pill{background:#fff;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 12px 30px rgba(2,6,23,0.03);border:1px solid rgba(15,23,42,0.03);display:inline-flex;align-items:center;gap:10px}
   .pill .ico{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
 
+  /* utility */
+  .muted{color:var(--muted)}
+
   /* Talent showcase */
   .talent-row{max-width:var(--max-width);margin:22px auto;display:flex;gap:14px;overflow-x:auto;padding:18px}
   .card{min-width:220px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(15,23,42,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.04)}
@@ -127,7 +130,7 @@
         </select>
         <textarea id="bio" rows="3" placeholder="Short intro / portfolio link"></textarea>
         <div style="display:flex;gap:10px;justify-content:center">
-          <button class="btn-black" onclick="quickJoin()">Create profile</button>
+          <button class="btn-black" id="createProfileBtn">Create profile</button>
         </div>
         <div style="margin-top:10px;color:var(--muted);text-align:center">Or email: <a href="mailto:hiring@careeronestop.in">hiring@careeronestop.in</a></div>
       </div>
@@ -215,7 +218,12 @@
     window.location.href = `mailto:hiring@careeronestop.in?subject=${subject}&body=${body}`;
   }
 
-  // sample talent cards using unique headshots (ensure headshot_1.png ... headshot_6.png are in the same folder)
+  // Attach event listener to button
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('createProfileBtn').addEventListener('click', quickJoin);
+  });
+
+  // sample talent cards (using placeholder headshot images)
   const TALENTS = [
     {name:'Ravi',role:'Video Editor',img:'headshot_1.png'},
     {name:'Sneha',role:'Product Designer',img:'headshot_2.png'},
