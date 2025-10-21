@@ -23,8 +23,14 @@
   nav{display:flex;gap:14px;align-items:center}
   nav a{color:var(--muted);padding:8px 10px;border-radius:10px;font-weight:600}
   nav a.active{color:var(--black);font-weight:800}
-  .btn-ghost{padding:8px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)}
-  .btn-black{background:var(--black);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700}
+  .btn-ghost{padding:8px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:transparent}
+  .btn-black{
+    display:inline-block;
+    background:#06151a;
+    color:#fff;padding:12px 20px;border-radius:12px;font-weight:800;
+    box-shadow:0 10px 30px rgba(4,8,15,0.18);border:none;
+  }
+  .btn-black:focus{outline:3px solid #06a4a0;outline-offset:3px}
 
   /* Hero */
   .hero-wrap{max-width:1400px;margin:8px auto 12px;padding:28px 20px;text-align:center;position:relative}
@@ -35,7 +41,7 @@
   .hero-cta{margin-top:22px}
   .hero-foot{color:var(--muted);margin-top:12px;font-size:13px}
 
-  /* Floating avatars (decorative) */
+  /* floating avatars (decorative) */
   .avatars{pointer-events:none;position:relative;margin-top:14px;height:120px}
   .av{position:absolute;border-radius:999px;border:6px solid #fff;box-shadow:0 14px 40px rgba(2,6,23,0.08);overflow:hidden}
   .av img{width:100%;height:100%;object-fit:cover}
@@ -68,16 +74,17 @@
   .cta-box{max-width:var(--max-width);margin:36px auto;padding:36px 20px;text-align:center}
   .cta-inner{display:inline-block;background:linear-gradient(90deg,#06a4a0,#06b6d4);color:#fff;padding:22px 30px;border-radius:18px;font-weight:800;box-shadow:0 20px 60px rgba(2,6,23,0.08)}
 
-  /* Footer */
-  footer{background:#000;color:#fff;padding:48px 20px;margin-top:60px}
-  .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:26px;align-items:start}
-  .footer-inner h5{margin:0 0 12px;font-size:14px}
-  .footer-inner a{display:block;color:rgba(255,255,255,0.9);margin:8px 0;text-decoration:none;font-size:14px}
+  /* footer */
+  footer{background:#061226;color:#fff;padding:48px 20px;margin-top:60px}
+  .footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between}
+  .footer-inner h5{margin:0 0 8px;font-size:14px}
+  .footer-inner a{display:block;color:rgba(255,255,255,0.9);margin:6px 0;text-decoration:none;font-size:14px}
 
   /* utility */
   .muted{color:var(--muted)}
 
-  /* responsive */
+  /* mobile */
+  button, .btn-black, .btn-ghost, a { min-height:44px; }
   @media (max-width:1100px){
     .hero-h1{font-size:60px}
     .profile-card{min-width:280px}
@@ -87,7 +94,7 @@
     .av.s3{display:none}
     .profile-card .hero-img{height:220px}
     .roles-section{padding:28px 16px}
-    .footer-inner{grid-template-columns:1fr 1fr}
+    .footer-inner{flex-direction:column}
   }
   @media (max-width:420px){
     .hero-h1{font-size:30px}
@@ -99,23 +106,27 @@
   <!-- Header -->
   <header>
     <div class="brand"><a href="index.html"><img src="career-one-stop-monogram.png" alt="Career One Stop monogram"></a></div>
+
+    <!-- Improved nav -->
     <nav aria-label="Primary">
-      <a href="index.html" class="nav-link active">For Companies</a>
-      <a href="talent.html" class="nav-link">For Talent</a>
+      <a href="index.html" class="nav-link" data-nav="companies">For Companies</a>
+      <a href="talent.html" class="nav-link" data-nav="talent">For Talent</a>
+      <a href="#features">Why us</a>
+      <a href="#hire" class="btn-black" id="primaryCta">Hire Talent</a>
+      <a href="mailto:hiring@careeronestop.in" class="btn-ghost">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero (Companies) -->
+  <!-- Hero -->
   <main>
     <section class="hero-wrap">
       <div class="center">
         <div class="hero-kicker">Trusted by remote-first teams & scaling startups</div>
-        <h1 class="hero-h1">Build your India team — fast, vetted, reliable.</h1>
+        <h1 class="hero-h1">Build your India team — <em>fast, vetted, reliable.</em></h1>
         <p class="hero-sub">We source, screen and deliver interview-ready candidates across sales, customer success, product, marketing and operations. Dedicated recruiters, fast shortlists — hires that scale your team, not your hiring backlog.</p>
-        <div class="hero-cta"><a class="btn-black" href="mailto:hiring@careeronestop.in?subject=Book%20a%20hiring%20call">Book a hiring call</a></div>
+        <div class="hero-cta"><a class="btn-black" href="#hire" id="primaryCtaAlt">Book a hiring call</a></div>
         <div class="hero-foot">it's free 👀</div>
 
-        <!-- floating avatars (decorative) -->
         <div class="avatars" aria-hidden="true">
           <div class="av s1"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=60" alt=""></div>
           <div class="av s2"><img src="https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=500&q=60" alt=""></div>
@@ -142,24 +153,22 @@
         <div class="pill"><span class="ico" style="background:#f7f0ff">🧑‍💻</span> Product Manager</div>
         <div class="pill"><span class="ico" style="background:#fff3e0">🎨</span> Product Designer</div>
         <div class="pill"><span class="ico" style="background:#eef2ff">📣</span> Marketing Manager</div>
-        <div class="pill"><span class="ico" style="background:#f0fff4">✉️</span> Virtual Assistant</div>
-        <div class="pill"><span class="ico" style="background:#fff5f0">📈</span> Product Marketing</div>
       </div>
     </section>
 
-    <!-- Features / Why us -->
-    <section id="features" style="max-width:var(--max-width);margin:28px auto;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
-        <h4 style="margin:0 0 8px">Curated, pre-vetted candidates</h4>
-        <p class="muted" style="margin:0">We screen technical fit, role fit and cultural fit before you see a single CV — only interview-ready profiles make the shortlist.</p>
+    <!-- Features (card layout) -->
+    <section id="features" style="max-width:var(--max-width);margin:28px auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+      <div style="background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(15,23,42,0.04)">
+        <div style="font-size:20px;font-weight:800">Curated & vetted</div>
+        <p class="muted">We screen for experience, role fit and culture so you only interview qualified candidates.</p>
       </div>
-      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
-        <h4 style="margin:0 0 8px">Speed without compromise</h4>
-        <p class="muted" style="margin:0">Dedicated recruiters deliver shortlists in days, not weeks — shorten time-to-hire and keep momentum on high-impact roles.</p>
+      <div style="background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(15,23,42,0.04)">
+        <div style="font-size:20px;font-weight:800">Speed & reliability</div>
+        <p class="muted">Shortlists in days — our dedicated recruiters keep your hiring pipeline moving.</p>
       </div>
-      <div class="feature" style="background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)">
-        <h4 style="margin:0 0 8px">Managed hiring, dedicated recruiter</h4>
-        <p class="muted" style="margin:0">You get a recruiter who becomes your hiring partner — brief, shortlist, interview coordination and onboarding support.</p>
+      <div style="background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(15,23,42,0.04)">
+        <div style="font-size:20px;font-weight:800">Transparent pricing</div>
+        <p class="muted">Flexible models — % or fixed — we’ll propose the best approach after a short brief.</p>
       </div>
     </section>
 
@@ -190,82 +199,99 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section style="max-width:var(--max-width);margin:28px auto;padding:0 20px">
-      <h3 style="text-align:center">FAQ — Quick answers</h3>
-      <div style="max-width:900px;margin:16px auto;color:var(--muted);line-height:1.6">
-        <ul>
-          <li><strong>Who do you hire for?</strong> Sales (SaaS/B2B), Account teams, Customer Success, Marketing, Product, Designers and remote operations roles.</li>
-          <li><strong>How fast can you deliver?</strong> Typical shortlist delivery is 3–10 business days depending on role and seniority.</li>
-          <li><strong>What’s your pricing?</strong> Flexible — we propose % or fixed fee on the call depending on the role and volume.</li>
-          <li><strong>Do you provide a guarantee?</strong> Yes. We offer a replacement workflow (90-day replacement) for hires that don’t work out.</li>
-          <li><strong>Where are candidates based?</strong> Primarily India (remote-available for international teams).</li>
-        </ul>
-      </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-box" id="hire" aria-label="Hire CTA">
       <div class="cta-inner">
         <div style="font-size:20px">Ready to hire?</div>
         <div style="margin-top:8px;font-weight:400">Book a free 15-minute consultation and we'll propose a hiring plan tailored to your needs.</div>
-        <div style="margin-top:12px"><a class="btn-black" href="mailto:hiring@careeronestop.in?subject=Book%20a%20hiring%20call">Book a Call</a></div>
+        <div style="margin-top:12px"><a class="btn-black" href="#" id="primaryCta">Book a Call</a></div>
       </div>
     </section>
   </main>
 
+  <!-- CTA Modal (shared) -->
+  <div id="ctaModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.45);z-index:9999;align-items:center;justify-content:center">
+    <div style="width:clamp(320px,40%,560px);background:#fff;border-radius:14px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.2);position:relative">
+      <button id="closeCta" style="position:absolute;right:12px;top:12px;border:none;background:transparent;font-size:18px;cursor:pointer">✕</button>
+      <h3 style="margin:8px 0 6px">Book a quick hiring call</h3>
+      <p style="margin:0 0 12px;color:#6b7280">Share a few details and we'll reach out to schedule.</p>
+      <input id="companyName" placeholder="Company / Your name" style="width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid #eef3f5" />
+      <input id="contactEmail" placeholder="Work email" style="width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid #eef3f5" />
+      <select id="roleLevel" style="width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid #eef3f5">
+        <option>Hiring: Build a team</option>
+        <option>Hiring: Single hire</option>
+        <option>Hiring: Recruitment support</option>
+      </select>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button id="sendCta" class="btn-black">Request call</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <div>
-        <img src="career-one-stop-monogram.png" alt="Career One Stop monogram" style="height:28px;margin-bottom:12px">
-        <div style="color:rgba(255,255,255,0.85)">Recruitment · Talent network</div>
-        <div style="margin-top:12px;color:rgba(255,255,255,0.7)">© <span id="yearC"></span> Career One Stop</div>
+      <div style="min-width:220px">
+        <img src="career-one-stop-monogram.png" alt="Career One Stop" style="height:30px">
+        <p style="color:rgba(255,255,255,0.8);margin-top:8px">Recruitment · Talent Delivery</p>
       </div>
 
-      <div>
-        <h5>Platform</h5>
-        <a href="#">Creators</a>
-        <a href="#">Talent</a>
-        <a href="#">Hire Video Editor</a>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div>
+          <h5 style="margin:0 0 8px">Company</h5>
+          <a href="index.html">About</a>
+          <a href="mailto:hiring@careeronestop.in">Contact</a>
+        </div>
+        <div>
+          <h5 style="margin:0 0 8px">Resources</h5>
+          <a href="#">FAQ</a>
+          <a href="#">Hiring guide</a>
+        </div>
       </div>
 
-      <div>
-        <h5>Company</h5>
-        <a href="#">About</a>
-        <a href="#">Pricing</a>
-        <a href="#">Terms</a>
-      </div>
-
-      <div>
-        <h5>Resources</h5>
-        <a href="#">FAQ</a>
-        <a href="#">Hiring Guide</a>
-        <a href="mailto:hiring@careeronestop.in">Contact support</a>
-        <div style="margin-top:12px"><a href="https://www.linkedin.com/company/careeronestopp" style="color:rgba(255,255,255,0.9)">LinkedIn</a></div>
+      <div style="min-width:160px">
+        <h5 style="margin:0 0 8px">Get in touch</h5>
+        <a href="mailto:hiring@careeronestop.in">hiring@careeronestop.in</a>
+        <div style="margin-top:8px"><a href="https://www.linkedin.com/company/careeronestopp" style="color:#fff">LinkedIn</a></div>
       </div>
     </div>
   </footer>
 
 <script>
-  // set year
-  document.getElementById('yearC').textContent = new Date().getFullYear();
-
-  // rotating hero name (kept minimal; companies use fixed headline but rotator is safe)
+  // set year in footer if needed (older code may have used this)
+  // small nav active highlight based on file name
   (function(){
-    const names = ["Yes Theory","Watch","MrBeast","Ali Abdaal","Fynd"];
-    const el = document.getElementById('hero-rot');
-    if(!el) return;
-    let i = 0;
-    el.textContent = names[0];
-    setInterval(()=>{
-      i = (i+1) % names.length;
-      el.style.opacity = 0;
-      setTimeout(()=>{ el.textContent = names[i]; el.style.opacity = 1; }, 220);
-    }, 2600);
+    const links = document.querySelectorAll('header nav a');
+    const path = location.pathname.split('/').pop() || 'index.html';
+    links.forEach(a => {
+      const href = a.getAttribute('href');
+      if(!href) return;
+      if(href === path || (href==='index.html' && path==='') ) {
+        a.style.color = '#000';
+        a.style.fontWeight = '800';
+      }
+    });
   })();
 
-  // sample PROFILES for carousel (replace images with real ones if available)
+  // CTA modal openers (multiple elements)
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const modal = document.getElementById('ctaModal');
+    const openers = document.querySelectorAll('#primaryCta, #primaryCtaAlt, #primaryCta'); // elements that should open modal
+    openers.forEach(btn => btn && btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      modal.style.display = 'flex';
+    }));
+    document.getElementById('closeCta').addEventListener('click', ()=> modal.style.display='none');
+    document.getElementById('sendCta').addEventListener('click', ()=>{
+      const name = encodeURIComponent(document.getElementById('companyName').value || '—');
+      const email = encodeURIComponent(document.getElementById('contactEmail').value || '');
+      const type = encodeURIComponent(document.getElementById('roleLevel').value || '');
+      const body = `Company/Contact: ${name}%0AEmail: ${email}%0AType:${type}`;
+      window.location.href = `mailto:hiring@careeronestop.in?subject=Hire%20request&body=${body}`;
+    });
+  });
+
+  // sample PROFILES for carousel
   const PROFILES = [
     {title:"Sales (SaaS)", name:"Senior AE", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80"},
     {title:"Account Manager", name:"Account Lead", img:"https://images.unsplash.com/photo-1545996124-29b85dbd8c72?w=1200&q=80"},
@@ -309,3 +335,4 @@
 </script>
 </body>
 </html>
+
